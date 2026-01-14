@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ingress Demo</title>
+</head>
+<body>
+  <h1>Frontend Service</h1>
+  <button onclick="loadData()">Call Backend API</button>
+  <pre id="output"></pre>
+
+  <script>
+    function loadData() {
+      fetch("/api")
+        .then(res => res.json())
+        .then(data => {
+          document.getElementById("output").textContent =
+            JSON.stringify(data, null, 2);
+        });
+    }
+  </script>
+</body>
+</html>
+
